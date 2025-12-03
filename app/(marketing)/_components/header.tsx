@@ -103,19 +103,25 @@ export const HeroHeader = () => {
                   {user ? (
                     <>
                       <Link
-                        className={buttonVariants({
-                          size: "sm",
-                        })}
+                        className={cn(
+                          buttonVariants({
+                            size: "sm",
+                          }),
+                          isScrolled ? "hidden" : "lg:inline-flex"
+                        )}
                         href={"/workspace"}
                       >
                         <span>Dashboard</span>
                       </Link>
 
                       <LogoutLink
-                        className={buttonVariants({
-                          variant: "outline",
-                          size: "sm",
-                        })}
+                        className={cn(
+                          buttonVariants({
+                            variant: "outline",
+                            size: "sm",
+                          }),
+                          isScrolled ? "hidden" : "lg:inline-flex"
+                        )}
                       >
                         <span>LogOut</span>
                       </LogoutLink>
@@ -154,21 +160,36 @@ export const HeroHeader = () => {
               ) : (
                 <>
                   <LoginLink
-                    className={buttonVariants({
-                      variant: "outline",
-                      size: "sm",
-                    })}
+                    className={cn(
+                      buttonVariants({
+                        variant: "outline",
+                        size: "sm",
+                      }),
+                      isScrolled ? "hidden" : "lg:inline-flex"
+                    )}
                   >
                     Login
                   </LoginLink>
 
                   <RegisterLink
-                    className={buttonVariants({
-                      size: "sm",
-                    })}
+                    className={cn(
+                      buttonVariants({
+                        size: "sm",
+                      }),
+                      isScrolled ? "hidden" : "lg:inline-flex"
+                    )}
                   >
-                    {" "}
                     Sign Up
+                  </RegisterLink>
+
+                  <RegisterLink className={cn(isScrolled ? "lg:inline-flex" : "hidden")}>
+                    <span
+                      className={buttonVariants({
+                        size: "sm",
+                      })}
+                    >
+                      GetStarted
+                    </span>
                   </RegisterLink>
                 </>
               )}
